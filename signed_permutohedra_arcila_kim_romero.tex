@@ -1,0 +1,1272 @@
+\documentclass[12pt]{amsart}
+\usepackage{fullpage,url,amssymb,amsmath,graphicx}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage {amsmath}
+\usepackage{amsthm}
+\usepackage {amssymb}
+\usepackage {graphicx}
+\usepackage {bbm}
+\usepackage[colorinlistoftodos]{todonotes}
+
+
+% % % % % % % % % % % % % % % % %
+\usepackage{tikz}
+\usetikzlibrary{shadows, graphs}
+\usetikzlibrary{shapes,arrows,fit,calc,positioning}
+\usepackage{tkz-graph}
+\usepackage{caption}
+% % % % % % % % % % % % % % % % %
+
+%\usepackage{setspace}
+%\documentclass[12pt]{amsart}
+%\documentclass[letterpaper,10pt]{article}
+%\documentclass[letterpaper,12pt]{article}
+\setlength{\oddsidemargin}{0.15in} \setlength{\evensidemargin}{0cm}
+\setlength{\marginparwidth}{28mm}
+\setlength{\marginparsep}{28mm}
+\setlength{\marginparpush}{25mm}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{15mm}    
+\setlength{\textheight}{21cm}
+\setlength{\textwidth}{6.0in}
+\setlength{\parskip}{4pt}
+
+\usepackage{amsmath}
+%\usepackage{amsthm}
+\usepackage {amssymb}
+%\usepackage {stmaryrd}
+\usepackage {graphicx,enumerate,booktabs}
+\usepackage {color, tikz}
+%\usepackage{graphics}
+\usepackage[all]{xy}
+%\usepackage{amsrefs}
+\usepackage{enumerate}
+\usepackage{verbatim}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem*{theoremNN}{Theorem}
+\newtheorem{propo}[lemma]{Proposition}
+\newtheorem{cor}[lemma]{Corollary}
+\newtheorem{conj}[lemma]{Conjecture}
+\newtheorem*{conjectureNN}{Conjecture}
+
+\newtheorem{claim}[lemma]{Claim}
+\newtheorem{claim*}{Claim}
+\newtheorem{remark}[lemma]{Remark}
+\newtheorem{quest}[lemma]{Question}
+\newtheorem{example}[lemma]{Example}
+
+
+\numberwithin{equation}{section}
+
+
+\DeclareMathOperator{\supp}{ supp}
+\newcommand{\vlist}[1]{ { v}_1, {v}_2, \dots , { v}_#1}
+\newcommand{\xlist}[1]{ {x}_1, { x}_2, \dots , { x}_#1}
+
+\newcommand{\Cox}{\operatorname{Cox}}
+\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\Tor}{\operatorname{Tor}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\Osh}{{\mathcal O}}
+\newcommand{\kk}{\kappa}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\C}{\operatorname{Cone}}
+\newcommand{\Sym}{\operatorname{Sym}}
+
+\newcommand{\MC}{\operatorname{MaxCut}}
+\newcommand{\SD}{\operatorname{SD}}
+\newcommand{\SDD}{\operatorname{SD^*}}
+\newcommand{\EW}{\operatorname{\mathbb{E}W}}
+\newcommand{\w}{\operatorname{\omega}}
+\newcommand{\srg}{\operatorname{srg}}
+\newcommand{\E}{\operatorname{\mathbb{E}}}
+\newcommand{\RR}{\operatorname{\mathbb{R}}}
+
+\newcommand{\nn}{\mathcal{N}}
+\newcommand{\pp}{\mathcal{P}}
+\newcommand{\bb}{\mathcal{B}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\Hz}{H^{0}}
+
+\newcommand{\si}{\mathcal{S}}
+\newcommand{\J}{\mathcal{J}}
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % %Comments % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\newcommand{\da}[1]{{\color{red} \sf $\clubsuit\clubsuit\clubsuit$ DA: [#1]}}
+\newcommand{\mk}[1]{{\color{blue} \sf $\clubsuit\clubsuit\clubsuit$ MK: [#1]}}
+\newcommand{\jr}[1]{{\color{brown} \sf $\clubsuit\clubsuit\clubsuit$ JR: [#1]}}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\title{Project Proposal: Signed Permutahedra}
+\author{David Mauricio Arcila \\ Matthew Cader Kim \\ Juli\'an Ariel Romero Barbosa}
+
+\begin{document}
+\maketitle
+%\jr{Edit this document at your will. We can use the commands \da{}, \mk{} and \jr{}  to add comments and suggestions. My English writing is not at its best at this moment so feel free to correct me if you see any mistakes or dumb writing in the docu.}
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%								  Introduction? 					  										   	|
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+\section{Introduction}
+
+Professor W. W. a brilliant chemist graduated from CalTech is passing through very difficult economical problems. This situation has lead him to do illegal stuff and now he is working on a meth lab for Mr. G., a very dangerous person. Professor W. W. needs to complete $n$ different procedures  in $n$ distinct periods of time of the day to create the crystal. He has developed a technique that allows him to perform each procedures independently from the others but this technique only allows him to perform one procedure per period of time. In spite of this independence, each procedure comes with a deadline that guarantees a good percentage of purity of the crystal and he needs to satisfy the minimum requirements imposed by Mr. G. or his family will be in danger. As you may notice, he desperately needs an optimal way to create the crystal. \\
+His lab assistant Jessee, has notice that it is possible to consider the deadlines as a vector $\textbf{D}=(d_1,...,d_n)$ where $d_i$ is an integer between $1$ and $n$ and the percentage of purity lost due to delays as a vector $\textbf{P}=(p_1,...,p_n)$ where $p_i$ is the non-negative real percentage of purity lost due a delay on the procedure $i$. Luckily, Jessee notice that the function they want to minimize is
+$$
+c(\sigma)= \sum_{i=1}^{n}p_i \cdot \max\{\sigma_{i}-d_i,0\} 
+$$                       
+where $\sigma \in \mathcal{S}_n$ represent a possible schedule they may choose. \\
+Professor W.W. has always seen Jessee as a poor junkie that never do anything right and although the formulation of the problem was correct, he believes that this is not the best way to state the problem due to the presence of a non-linear function on it, he thinks for a while and then came up with a brilliant reformulation: \\
+
+\begin{definition}
+A subset of procedures $X\subset[n]$ is called \textit{realizable} if there is a schedule $\sigma\in\mathcal{S}_n $ such that every procedure in $X$ is programmed before the deadline.  
+\end{definition}
+\begin{example}
+Suppose that $D=(2,3,5,6,7,1,1)$ then the set $X=\{1,2,3,6\}$ is realizable since the schedule $\sigma=(6,1,2,3,4,5,7)$ performs all the processes in $X$ on time. The set $Y=\{6,7\}$ is not realizable since the deadline of both procedures is in the same period of time. 
+\end{example}
+Note that for each schedule $\sigma\in \mathcal{S}_n$ we can associate it the realizable set $X_{\sigma}=\{i\in[n]: \ \sigma_i\leq d_i\}$ and that if $\hat{X}$ is a realizable set (with schedule $\hat{\sigma}$) that maximizes the function
+$$
+P(X):=\sum_{i\in X}p_i
+$$ 
+over all possible realizable sets $X$, then, for any $\tau\in \mathcal{S}_n$ 
+\begin{align*}
+c(\tau)=\sum_{i=1}^np_i-\sum_{i\in X_\tau}p_i \geq \sum_{i=1}^np_i-\sum_{i\in \hat{X}}p_i=c(\hat{\sigma}), 
+\end{align*} 
+hence obtaining an optimal for Professor W.W.'s problem. Thus, we have proved:
+\begin{propo}
+Let $\mathcal{M}$ the class of all realizable sets, then
+$$
+\min_{\sigma\in \mathcal{S}_n}c(\sigma)=\sum_{i=1}^np_i-\max_{X\in \mathcal{M}}P(X).
+$$ 
+\end{propo}
+
+Realizable sets have a very rich structure as is shown in the two following propositions:
+
+\begin{propo}
+For each subset of procedures $X$ and every $i\in [n]$ let us define the function $f(X,i)=|\{j\in X: \ d_j\leq i  \}|$ (set $f(X,0)=0$ for every $X$). Then, $X$ is realizable if and only if $f(X,i)\leq i$ for every $i\in [n]$. 
+\end{propo} 
+\begin{proof}
+Suppose that $\sigma$ is a schedule in which every procedure in $X$ is on time. Let $j_i$ be the $i$-th procedure in $X$ to be completed. Note that $\sigma(j_i)\geq i$, since otherwise, we could not have completed $i-1$ other jobs in $X$ before $j_i$. On the other hand, $\sigma(j_i)\leq d_i$ by the definition of $\sigma$. Hence $d_{j_i}\geq i$ and $f(X,i)\leq i$. \\
+Now, suppose that $f(X,i)\leq i$ for every integer $i\in [n]$. If we perform the procedures in $X$ in increasing order of deadline, then we complete all tasks in $X$ with deadlines $i$ or less by the period of time $i$. In particular, for any $j\in X$, we perform task $j$ on or before its deadlines $d_i$. Thus, $X$ is realistic.         
+\end{proof}
+\begin{propo}
+Let $\mathcal{M}$ the class of all realizable sets, then
+\begin{enumerate}
+\item The empty set is in $\mathcal{M}$.
+\item If $X\in \mathcal{M}$ the every subset of $X$ also is in $\mathcal{M}$.
+\item If $X$ and $Y$ are realizable with $|X|>|Y|$, then there is an procedure in $x$ in $X\setminus Y$ such that $Y\cup\{x\}$ is realizable.
+\end{enumerate}
+\end{propo}
+\begin{proof}
+Only item \textit{(3)} is not trivial. Let $\hat{i}$ be the largest integer such that $f(X,\hat{i})\leq f(Y,\hat{i})$. This integer must exists because $f(X,0)=0=f(Y,0)$ and $f(X,n)=|X|>|Y|=f(Y,n)$. By definition of $\hat{i}$, there are more procedures with deadline $\hat{i}+1$ in $X$ than in $Y$.  Thus, we can choose a procedure $x$ in $X\setminus Y$ with deadline $\hat{i}+1$. \\
+Let $i\in [n]$ . If $i\leq \hat{i}$, then $f(Y\cup\{x\},i)=f(Y,i)\leq i$. On the other hand, if $i>\hat{i}$, then $f(Y\cup\{x\},i)=f(Y,i)+1\leq f(X,i)<i$ by definition of $\hat{i}$ and because $X$ is realizable. Then, it follows that $Y\cup\{x\}$ is realizable.       
+\end{proof}
+After noticing this quite interesting property of the class of realizable sets, professor W.W. saw that he was facing a similar structure he encountered once in an Combinatorial Optimization course he took at CalTech and after some research he realizes that he has proved that $\mathcal{M}$ was a \textbf{Matroid}:  a class of sets that satisfies \textit{(1), (2) and (3)} of the proposition above, that is, an abstraction of the linear independence property over a set of vectors. \\
+A great fact about Matroids is that problems like 
+$$
+\max_{X\in \mathcal{M}} \sum_{i\in X}p_i
+$$       
+can be seen as linear optimization problems over certain polyhedra. In particular:
+\begin{propo}
+For each set of procedures $X$ let $e_X\in\rr^n$ be the vector defined by
+$$
+(e_{X})_i=\begin{cases}1 & if \ i\in X \\ 0 & if \ i\notin X \end{cases}.
+$$ 
+If $r$ is the function defined by 
+$$ 
+r(A)=\{|X|:\ X\in\mathcal{M}, \ X\subset A\},
+$$ 
+called the rank function of $\mathcal{M}$ then
+$$
+\max_{X\in \mathcal{M}}\sum_{i\in X}p_i=\max_{x\in P(r)}\textbf{P}\cdot x 
+$$
+where 
+$$
+P(r):=\{x\in \rr^{n}: \  e_{X}\cdot x\leq r(X), \  x_i\geq 0 \ i\in[n], \ X\subset [n]\}.
+$$
+\end{propo}
+The polyhedron $P(r)$ is in fact the convex hull of all realizable vectors $e_X$ and they are called Matroid Polytopes. The objective of this project is to study these polytopes and certain generalizations of them called $\Delta$-Matroid Polytopes. These polytopes belongs to certain class of polytopes which are deformations of the permutohedron: \\
+
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%								    Permutohedron Section       		 										   	|
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+
+
+\section{Permutohedron}
+The {\em regular permutohedron} is formed by taking the convex hull of the points generated by permuting the coordinates
+of $(1,2, \dots , n)$.  This is equivalent to reflecting the point about the set of hyperplanes $x_i=x_j$ for $i\neq j$.  This is called the 
+type $A_n$ hyperplane arrangement. The {\em generalized permutohedron} is obtained from the {\em regular permutohedron} by moving each vertex so that directions of all edges are preserved, letting some of the edges degenerate into a single point. 
+
+\subsection{Facial Structure of the permutohedron}
+\begin{center}
+\definecolor{qqccqq}{rgb}{0,0.8,0}
+\definecolor{ffqqtt}{rgb}{1,0,0.2}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{ffcctt}{rgb}{1,0.8,0.2}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.3,-1.54) rectangle (4.6,5.64);
+\fill[color=ffcctt,fill=ffcctt,fill opacity=0.2] (2.6,5.5) -- (-0.87,3.5) -- (-0.87,-0.5) -- (2.6,1.5) -- cycle;
+\fill[color=ffqqqq,fill=ffqqqq,fill opacity=0.4] (3.46,5) -- (0,3) -- (0,-1) -- (3.46,1) -- cycle;
+\fill[color=qqqqff,fill=qqqqff,fill opacity=0.5] (4.33,4.5) -- (0.87,2.5) -- (0.87,-1.5) -- (4.33,0.5) -- cycle;
+\fill[color=qqccqq,fill=qqccqq,fill opacity=0.45] (0.38,1.8) -- (1.2,3.16) -- (2.92,3.28) -- (3.84,1.76) -- (2.98,0.24) -- (1.26,0.26) -- cycle;
+\draw [color=ffcctt] (2.6,5.5)-- (-0.87,3.5);
+\draw [color=ffcctt] (-0.87,3.5)-- (-0.87,-0.5);
+\draw [color=ffcctt] (-0.87,-0.5)-- (2.6,1.5);
+\draw [color=ffcctt] (2.6,1.5)-- (2.6,5.5);
+\draw [color=ffqqqq] (3.46,5)-- (0,3);
+\draw [color=ffqqqq] (0,3)-- (0,-1);
+\draw [color=ffqqqq] (0,-1)-- (3.46,1);
+\draw [color=ffqqqq] (3.46,1)-- (3.46,5);
+\draw [color=qqqqff] (4.33,4.5)-- (0.87,2.5);
+\draw [color=qqqqff] (0.87,2.5)-- (0.87,-1.5);
+\draw [color=qqqqff] (0.87,-1.5)-- (4.33,0.5);
+\draw [color=qqqqff] (4.33,0.5)-- (4.33,4.5);
+\draw [color=qqccqq] (0.38,1.8)-- (1.2,3.16);
+\draw [color=qqccqq] (1.2,3.16)-- (2.92,3.28);
+\draw [color=qqccqq] (2.92,3.28)-- (3.84,1.76);
+\draw [color=qqccqq] (3.84,1.76)-- (2.98,0.24);
+\draw [color=qqccqq] (2.98,0.24)-- (1.26,0.26);
+\draw [color=qqccqq] (1.26,0.26)-- (0.38,1.8);
+\begin{scriptsize}
+\fill [color=qqqqff] (3.84,1.76) circle (1.5pt);
+\fill [color=qqqqff] (2.98,0.24) circle (1.5pt);
+\fill [color=ffqqqq] (2.92,3.28) circle (1.5pt);
+\fill [color=ffqqtt] (1.26,0.26) circle (1.5pt);
+\fill [color=ffcctt] (1.2,3.16) circle (1.5pt);
+\fill [color=ffcctt] (0.38,1.8) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+We are going to describe the facial structure of the permutohedron $P(a)$ where $a=(\alpha_1,\dots, \alpha_n)$ with $\alpha_1>\cdots > \alpha_n$ as it is done in \cite{Barvinok}.
+
+\begin{lemma}
+\label{lem:faces}
+Let $P=conv(v_1,\dots,v_m)\subset \RR^d$ be a polytope and let $F\subset P$ be a face. Then $F=conv(v_i: v_i\in F)$.
+\end{lemma}
+
+\begin{proof}
+See \cite{Barvinok}
+\end{proof}
+
+\begin{lemma}
+\label{lem:reorder}
+Let $x=(x_1,\dots, x_n)$ and $y=(y_1,\dots, y_n)$. Suppose that $x_i>x_j$ and $y_i<y_j$ for some pair of indices $i\neq j$. Let $\overline{y}$ be the vector obtained from $y$ by swapping $y_i$ and $y_j$. Then
+
+$$ \langle x,\overline y \rangle > \langle x,y \rangle$$
+\end{lemma}
+
+\begin{proof} We have
+
+$\langle x,\overline y \rangle - \langle x,y \rangle=x_iy_j+x_jy_i-x_iy_i-x_jy_j=(x_i-x_j)(y_j-y_i)>0$
+\end{proof}
+
+\begin{propo}
+\label{propo:permfaces}
+Let $a=(\alpha_1,\dots, \alpha_n)$ be a point such that $\alpha_1>\cdots > \alpha_n$ and let $P=P(a)$ be it's orbit polytope. For a number $1\leq k\leq n$, let $\mathcal S$ be a partition of $[n]$ into $k$ pairwise disjoint non-empty subsets $S_1,\dots, S_k$. Let $s_i=|S_i|$ for $i=1,\dots,k$, let $t_i=\sum_{j=1}^i s_j$ for $i=1,\dots,k$ and let us define sets $A_1=\{\alpha_j: 1\leq j\leq s_1\}$ and $A_i=\{\alpha_j: t_{i-1}<j\leq t_i\}$ for $i=2,\dots,k$.
+
+Let $F_{\mathcal S}$ be the convex hull of the points $b=\sigma(a), b=(\beta_1,\dots,\beta_n)$ such that $\{ \beta_j:j\in S_i \}=A_i $ for all $i=1,\dots,k$, that is permuting the first $s_1$ biggest numbers in the positions given by $S_1$, the next $s_2$ biggest numbers in the positions given by $S_2$ and so forth.
+
+Then $F_{\mathcal S}$ is a face of $P$, dim $F_{\mathcal S}=n-k$ and for every face $F$ of $P$ we have $F=F_{\mathcal S}$ for some partition $\mathcal S$.
+\end{propo}
+
+\begin{proof}
+
+Lets describe first all the faces $F$ of $P$ containing $a$.
+
+Let $c=(\gamma_1,\dots,\gamma_n)$ be a vector and $\lambda$ be a number such that $\langle c, x \rangle \leq \lambda$ for all $x\in P$ and $\langle c, x \rangle = \lambda$ if and only if $x\in F$. Since $a\in F$, we have $\langle c, a \rangle=\lambda$. Lemma \ref{lem:reorder} implies that we must have $\gamma_1\geq\cdots\geq\gamma_n$, since if for some $i<j$ we had $\gamma_i<\gamma_j$, we would have obtainded $\langle c, \tau(a) \rangle > \langle c, a \rangle$ for the transposition $\tau$ that swaps $\alpha_i$ and $\alpha_j$.
+
+Let us split the sequence $\gamma_1\geq\cdots\geq\gamma_n$ into the subintervals $S_1,\dots,S_k$ for which de $\gamma$'s do not change. Hence $S_1=\{ j:\gamma_j=\gamma_1 \}$, $s_1=t_1=|S_1|$ and $S_i=\{ j:\gamma_j=\gamma_{t_{i-1}+1} \}$, $s_i=|S_i|$ and $t_i=t_{i-1}+s_i$ for $i=2,\dots,k$.
+
+We observe that for $b=\sigma(a)=(\beta_1,\dots,\beta_n)$, we have $\langle b, c \rangle=\langle a, c \rangle$ if and only if $(\beta_1,\dots,\beta_{t_1})$ is a permutation of $(\alpha_1,\dots,\alpha_{t_1})$, $(\beta_{t_{1}}+1,\dots,\beta_{t_2})$ is a permutation of $(\alpha_{t_{1}+1},\dots,\alpha_{2})$, and so forth. Applying Lemma \ref{lem:faces}, we conclude that $F=F_{\mathcal{S}}$ for the partition $\mathcal{S}=\{ S_1,\dots ,S_k \}$.
+
+Vice versa, every vector $c=(\gamma_1,\dots,\gamma_n)$ with $\gamma_1\geq\cdots\geq\gamma_n$ gives rise to a face $F_{\mathcal{S}}$ containing $a$, where $\mathcal{S}=\{ S_1,\dots ,S_k \}$ is the partition of $[n]$ into the subintervals on which $\gamma$'s do not change.
+
+Let $\sigma$ be a permutation such that $\sigma(x)=y$, the action $\sigma $ over $\RR^n$ is an orthogonal transformation. As $P$ is fixed by any permutation, then $F$ is a face of $P$ if and only if for some permutation $\sigma$, the set $\sigma(F)$ is a face of $P$ containing $a$. If $\sigma(F)$ is $F_{\mathcal{S}}$ for the partition $\mathcal{S}=\{ S_1,\dots ,S_k \}$, then $F=F_{\mathcal{S'}}$ for $\mathcal{S'}=\{ \sigma^{-1}(S_1),\dots ,\sigma^{-1}(S_k) \}$.
+
+Let $a_1=(\alpha_1,\dots,\alpha_{s_1})\in \RR^{s_1}$, and let $a_i=(\alpha_{t_{i-1}+1},\dots,\alpha_{s_i})\in \RR^{s_i}$ for $i=2,\dots, k$. Geometrically, the face $F_{\mathcal{S}}$ is the direct product 
+
+$$ F_{\mathcal{S}}=P(a_1)\times \cdots \times P(a_k) $$
+
+of the permutation polytopes $P(a_i)\subset \RR^{s_i}$, since all of them have different coordinates, then each $P(a_i)$has dimension $s_i-1$. Therefore,
+
+$$ dim F_{\mathcal{S}}=\sum_{i=1}^k dim P(a_i)=\sum_{i=1}^k s_i-1=n-k$$
+
+\end{proof}
+
+\begin{propo}
+\label{propo:permzono}
+The permutohedron $\prod_{n-1}=P(a)$ where $a=(n,n-1,\dots,1)$ equals the minkowski sum
+
+$$ \frac{n+1}{2}(1,\cdots,1)+\sum_{i>j}[-\frac{e_i-e_j}{2},\frac{e_i-e_j}{2}] $$
+\end{propo}
+
+\begin{proof}
+As proven in \cite{Ziegler}.
+
+First see that that minkowski sum is invariant under the action of a transposition of the coordinates, the segments may change their direction but it is not important because each segment stays the same as a set, so is invariant under any permutation, now lets compute the points of the sum that maximize a linear functional $c$ with $\gamma_1\geq\cdots\geq\gamma_n$. A point maximizes the linear functional if it maximizes it in each segment of the minkowski sum, and in the segment $[-\frac{e_i-e_j}{2},\frac{e_i-e_j}{2}]$ with $i>j$, the one that maximizes it is $\frac{e_i-e_j}{2}$, and adding each one of these points we get
+
+$$ \frac{n+1}{2}(1,\cdots,1)+\sum_{i>j}\frac{e_i-e_j}{2} $$
+
+$$ =\frac{n+1}{2}(1,\cdots,1)+\frac{n-1}{2}e_1+\frac{n-2}{2}e_1+\cdots+\frac{1}{2}e_{n-1}=(n,n-1,\dots,1)$$
+
+That means it is a point of the resulting polytope. If the order of the coordinates of $c$ is different, it can be set in the right ordering applying the corresponding permutation, so the point maximizing it will be the preimage of $(n,n-1,\dots,1)$ in the permutation, and each point of the permutohedron maximize a linear functional whose coordinates satisfies the same ordering as it. If $c$ has two equal coordinates, $\gamma_i=\gamma_j$ then all the segment $[-\frac{e_i-e_j}{2},\frac{e_i-e_j}{2}]$ would maximize the linear functional, not giving a vertex, that means the vertices of the resulting polytope are the same as $\prod_{n-1}$.
+\end{proof}
+
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%								  Generalized Permutohedra Section   										   	|
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+\section{Submodular Functions and Generalized Permutohedra}
+\begin{center}
+\definecolor{qqccqq}{rgb}{0,0.8,0}
+\definecolor{ffqqtt}{rgb}{1,0,0.2}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{ffcctt}{rgb}{1,0.8,0.2}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-1.42,-1.58) rectangle (4.82,5.52);
+\fill[color=ffcctt,fill=ffcctt,fill opacity=0.2] (2.6,5.5) -- (-0.87,3.5) -- (-0.87,-0.5) -- (2.6,1.5) -- cycle;
+\fill[color=ffqqqq,fill=ffqqqq,fill opacity=0.4] (3.46,5) -- (0,3) -- (0,-1) -- (3.46,1) -- cycle;
+\fill[color=qqqqff,fill=qqqqff,fill opacity=0.5] (4.33,4.5) -- (0.87,2.5) -- (0.87,-1.5) -- (4.33,0.5) -- cycle;
+\fill[dash pattern=on 1pt off 1pt,color=qqccqq,fill=qqccqq,fill opacity=0.3] (-0.42,1.3) -- (0.4,2.78) -- (2.12,2.78) -- (2.96,1.28) -- (2.12,-0.16) -- (0.46,-0.22) -- cycle;
+\fill[fill=black,fill opacity=0.25] (0.4,2.78) -- (3.86,2.8) -- (2.12,-0.16) -- (0.46,-0.22) -- (-0.42,1.3) -- cycle;
+\draw [color=ffcctt] (2.6,5.5)-- (-0.87,3.5);
+\draw [color=ffcctt] (-0.87,3.5)-- (-0.87,-0.5);
+\draw [color=ffcctt] (-0.87,-0.5)-- (2.6,1.5);
+\draw [color=ffcctt] (2.6,1.5)-- (2.6,5.5);
+\draw [color=ffqqqq] (3.46,5)-- (0,3);
+\draw [color=ffqqqq] (0,3)-- (0,-1);
+\draw [color=ffqqqq] (0,-1)-- (3.46,1);
+\draw [color=ffqqqq] (3.46,1)-- (3.46,5);
+\draw [color=qqqqff] (4.33,4.5)-- (0.87,2.5);
+\draw [color=qqqqff] (0.87,2.5)-- (0.87,-1.5);
+\draw [color=qqqqff] (0.87,-1.5)-- (4.33,0.5);
+\draw [color=qqqqff] (4.33,0.5)-- (4.33,4.5);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (-0.42,1.3)-- (0.4,2.78);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (0.4,2.78)-- (2.12,2.78);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (2.12,2.78)-- (2.96,1.28);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (2.96,1.28)-- (2.12,-0.16);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (2.12,-0.16)-- (0.46,-0.22);
+\draw [dash pattern=on 1pt off 1pt,color=qqccqq] (0.46,-0.22)-- (-0.42,1.3);
+\draw (0.4,2.78)-- (3.86,2.8);
+\draw (3.86,2.8)-- (2.12,-0.16);
+\draw (2.12,-0.16)-- (0.46,-0.22);
+\draw (0.46,-0.22)-- (-0.42,1.3);
+\draw (-0.42,1.3)-- (0.4,2.78);
+\begin{scriptsize}
+\fill [color=qqqqff] (2.96,1.28) circle (1.5pt);
+\fill [color=qqqqff] (2.12,-0.16) circle (1.5pt);
+\fill [color=ffqqqq] (2.12,2.78) circle (1.5pt);
+\fill [color=ffqqtt] (0.46,-0.22) circle (1.5pt);
+\fill [color=ffcctt] (0.4,2.78) circle (1.5pt);
+\fill [color=ffcctt] (-0.42,1.3) circle (1.5pt);
+\fill [color=qqqqff] (3.86,2.8) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\begin{definition}
+ {\bf Generalized Permutohedra} are deformations of the usual 
+permutohedron that preserve the edge directions.  These are obtained by
+moving the facets of the usual permutohedron in a direction normal 
+to their defining hyperplanes. 
+\end{definition}
+\begin{example}
+As an example of {\em generalized permutohedra} we can reflect an arbitrary point $(x_1, x_2, \dots , x_n)$ about the type $A_n$ hyperplane arrangement generating a permutohedron $P(x)$. We may notice that not all generalized permutohedra are generated in this way since if we do an appropriate deformation of a $P(x)$ by moving one of the facets along certain direction, the orbit of the points of this translated facet may not be in the polytope as the following figure illustrates.   
+\definecolor{qqzzff}{rgb}{0,0.6,1}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqttzz}{rgb}{0,0.2,0.6}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{center}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=0.5]
+\clip(-0.23,-7.34) rectangle (15.37,6.39);
+\fill[color=qqttzz,fill=qqttzz,fill opacity=0.55] (3.6,2.8) -- (6,4) -- (11.6,1.2) -- (11.6,-3.2) -- (6,-6) -- (3.6,-4.8) -- cycle;
+\fill[color=qqzzff,fill=qqzzff,fill opacity=0.2] (3.6,-4.8) -- (3.6,3.76) -- (5.04,4.48) -- (11.6,1.2) -- (11.6,-3.2) -- (6,-6) -- cycle;
+\draw [domain=-0.23:15.37] plot(\x,{(--26-4*\x)/2});
+\draw [domain=-0.23:15.37] plot(\x,{(-30--4*\x)/2});
+\draw [domain=-0.23:15.37] plot(\x,{(-9-0*\x)/9});
+\draw (6,4)-- (3.6,2.8);
+\draw (3.6,2.8)-- (3.6,-4.8);
+\draw (3.6,-4.8)-- (6,-6);
+\draw (6,-6)-- (11.6,-3.2);
+\draw (11.6,-3.2)-- (11.6,1.2);
+\draw (11.6,1.2)-- (6,4);
+\draw [color=qqttzz] (3.6,2.8)-- (6,4);
+\draw [color=qqttzz] (6,4)-- (11.6,1.2);
+\draw [color=qqttzz] (11.6,1.2)-- (11.6,-3.2);
+\draw [color=qqttzz] (11.6,-3.2)-- (6,-6);
+\draw [color=qqttzz] (6,-6)-- (3.6,-4.8);
+\draw [color=qqttzz] (3.6,-4.8)-- (3.6,2.8);
+\draw [color=qqzzff] (3.6,-4.8)-- (3.6,3.76);
+\draw [color=qqzzff] (3.6,3.76)-- (5.04,4.48);
+\draw [color=qqzzff] (5.04,4.48)-- (11.6,1.2);
+\draw [color=qqzzff] (11.6,1.2)-- (11.6,-3.2);
+\draw [color=qqzzff] (11.6,-3.2)-- (6,-6);
+\draw [color=qqzzff] (6,-6)-- (3.6,-4.8);
+\draw [dash pattern=on 4pt off 4pt] (11.6,1.2)-- (12.56,0.72);
+\draw [dash pattern=on 4pt off 4pt] (3.6,-4.8)-- (3.6,-5.76);
+\begin{scriptsize}
+\fill [color=qqqqff] (6,4) circle (1.5pt);
+\draw[color=qqqqff] (6.12,4.24) node {$A$};
+\fill [color=qqqqff] (3.6,2.8) circle (1.5pt);
+\draw[color=qqqqff] (3.73,3.03) node {$B$};
+\fill [color=qqqqff] (3.6,-4.8) circle (1.5pt);
+\draw[color=qqqqff] (3.73,-4.56) node {$C$};
+\fill [color=qqqqff] (6,-6) circle (1.5pt);
+\draw[color=qqqqff] (6.14,-5.76) node {$D$};
+\fill [color=qqqqff] (11.6,-3.2) circle (1.5pt);
+\draw[color=qqqqff] (11.73,-2.97) node {$E$};
+\fill [color=qqqqff] (11.6,1.2) circle (1.5pt);
+\draw[color=qqqqff] (11.72,1.43) node {$F$};
+\fill [color=xdxdff] (3.6,3.76) circle (1.5pt);
+\draw[color=xdxdff] (3.68,3.99) node {$I$};
+\fill [color=uuuuuu] (5.04,4.48) circle (1.5pt);
+\draw[color=uuuuuu] (5.15,4.72) node {$J$};
+\fill [color=xdxdff] (3.6,-5.76) circle (1.5pt);
+\draw[color=xdxdff] (3.7,-5.53) node {$I'$};
+\fill [color=uuuuuu] (12.56,0.72) circle (1.5pt);
+\draw[color=uuuuuu] (12.7,0.95) node {$J'$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+\end{example}
+An equivalent classification of generalized permutohedra are all polyhedra
+whose normal fan is refined by the Braid arrangement,
+
+
+
+%----------------------------   Introduce Braid Arr.   --------------------------------------------------------------------------------------%
+
+
+ The Braid arrangement, denoted $\bb_n$ is simply the type $A_n$ hyperplane arrangement, 
+$$ x_i= x_j  \text{  for all  }  i\neq j$$
+Each region created by the hyperplane arrangement corresponds to a permutation $\pi\in S_n$.  They are in fact
+cones generated by  $\{ e_{I_1},  e_{I_2}, \dots , e_{I_n}$ such that $I_1\subsetneq \cdots \subsetneq I_n$ is a complete
+flag of sets where $I_j = I_{j-1}\cup \pi(j)$.  If fact, when viewed as a fan in $\RR^*_n$, the braid arrangement is exactly 
+the normal fan of the usual permutohedron.  Every face of $\bb$ corresponds to an ordered composition
+$I = S_1\sqcup S_2 \sqcup \dots \sqcup S_k$.   Borrowing notation from \cite{HopfMonoid} we denote by $\bb_{S_1, \dots  S_k}$
+the face of the braid arrangement containing all $\gamma \in \RR_n*$ such that $y_i=y_j$ if $i,j\in S_a$ and the value of these
+equivalency classes are ordered according to the order on the subsets.  
+
+This relationship between the permutohedron and the Braid arrangement gives us the following theorem which will come
+into play when talking about generalized permutohedron. 
+
+%----       Introduce Notation -----% 
+
+For all $J\subset I$ we will write $e_J = \sum_{i\in J} e_i\in (\RR^I)^*$.  This is simply the characteristic vector of the set $J$. 
+
+\begin{lemma}
+
+   If $A,B\subset I$ are comparable, then $\C(e_A, e_B)$ is contained in a face of $\bb_I$.  Equivalently, $A, B$ determine
+a face of $\Pi_{I}$. 
+\end{lemma}
+
+\begin{proof}
+WLOG assume that $A\subsetneq B$.    Then $I = A\sqcup (B\setminus A) \sqcup (I\setminus B) $.  This determines
+a $|I|-3$ dimensional face of the permutehedron $Q\subset \Pi_{I} $. (if $B=I$, then this is a $|I|-2$ dimensional face.) Therefore
+there must be a corresponding face  $F\subset \bb$ containing linear functionals maximizing $Q$. 
+By definition, $e_A$ maximizes on $Q$, as well as $e_{A\cup B\setminus A}= e_B$.   This gives us the correct 
+dimension and $F  = \C(e_A, e_B, I)$,  
+which contains $\C(e_A, e_B)$.  
+\end{proof}
+
+
+  Since each facet of the permutohedron 
+corresponds to a non-empty subset of the $I$, the generalized permutohedra
+can be parametrized by a boolean function $z:2^{I} \rightarrow \RR$. In  
+ \cite{DokerThesis} this is referred to as the deformation
+cone $\mathcal{D}_n$.  
+In \cite{HopfMonoid} it is shown that these boolean functions are in fact
+submodular.  And adapted proof is reproduced here.    We start with some basic definitions. 
+
+
+
+
+
+\begin{definition} A {\bf boolean function} is a function from the subsets of $I$ to $\RR$.  
+\end{definition}
+
+They can equivalently be thought of as  function from the poset $B_n$, 
+the boolean lattice, to $\RR$.   
+A {\bf submodular} function is a boolean function $z$  such that 
+$$ z(A\cap B) + z(A\cup B) \leq z(A) + z(B) $$
+
+
+
+
+The {\bf Base Polytope} of a boolean function $z$ on $2^I$ is defined as  
+$$ \pp(z) := \{ x\in \mathbb{R}^I     \  \   |   \  \  \sum_{i \in I} x_i = z(I) \text {   and   }   \sum_{i\in A} x_i \leq z(A) \text{ for all  } A\subset I \}$$
+
+{\bf Note} that the submodular function on $2^I$ defining the regular permutoheron is simply the function 
+$$ z(A) = |I| + (|I| - 1) + \cdots + (|I|- |A| + 1) $$ which gives us the hyperplane description of $\Pi_I$. Indeed any boolean function where $z(A)=z(B)$
+if $|A|=|B|$ will give us the usual permutohedron. 
+
+\begin{conj}
+\label{conj:comparableSubets}
+If $F$ is a $k$ dimensional face of $\pp(z)$ where $z$ is submodular,  then $k$ is contained
+in the intersection of $n-k$ defining hyperplanes $\bigcap_{J_i\in \J} H_{J_i}$ such that all 
+the sets in $\J$ are comparable. 
+\end{conj}
+
+We being a proof of this in the following theorem, however the reader may note that this
+is still a conjecture due to a lack of procedure that given any family of sets $\J$ that define a $k$ 
+face, we can replace it with a family of comparable subsets of $I$ without introducing
+linear dependencies at some step. 
+
+
+%-------------------------------------------------------------------------------------------------------------------------------------------------%
+%--------------------------    Proof of Submodularity -------------------------------------------------------------------------------------%
+%-------------------------------------------------------------------------------------------------------------------------------------------------%
+
+\begin{theorem}
+\label{theorem:submodularity}
+ If $z$ is submodular, then $\pp(z)$ is a generalized permutohedron.  Also, if $P$ is as generalized permutohedron, then there
+is a unique submodular function $z$ such that $P=\pp(z)$ 
+\end{theorem}
+
+\begin{proof}
+
+To show that given a submodular function $z$, it's base polytope $\mathcal{P}(z)$ is a generalized permutohedron, 
+we first show that any edge of $\mathcal{P}(z)$ has the direction $e_i-e_j$ for some pair $(i,j)$.  From this it follows that its facets are parallel 
+to the corresponding facet of $\prod_{n-1}$ \\
+
+
+  We will denote by $\mathcal{P}(z)_J$
+the face of $\mathcal{P}(z)$ that is maximized by the linear functional $e_J$.  
+
+Now suppose that $E$ is a one dimensional face of $\mathcal{P}(z)$ contained in the line $L$.   
+$L$ must be the intersection of $n-1$ defining hyperplanes
+ of $\mathcal{P}(z)$.   One of these hyperplanes is the ambient hyperplane $e_I( x) = z(I)$ of the base polyhedra.  The other hyperplanes correspond to subsets of $I$.  Let $\mathcal{J} = \{ J_1, J_2, \dots J_{n-1}\} $ be the family of sets such that 
+$$L = \bigcap_{J_i\in \J} H_{J_1} $$. 
+
+Suppose that $J_1$ and $J_2$ are incomparable, i.e. $J_1\not\subset J_2$  and $J_2 \not\subset J_1$.   Note that in the usual permutohedron, 
+such faces would not intersect at all.   Two facets are only adjacent if one is contained in the other.   Therefore this polyhedron must be a 
+deformation where some intermediary hyperplane has been pushed out or in.   
+To observe this, take $v\in L$.  Since $v\in \mathcal{P}(z)$, we have
+that
+$$ z(J_1\cap J_2) + z(J_1\cup J_2) \geq e_{J_1\cap J_2}v  + e_{J_1\cup J_2} v =  e_{J_1}v +  e_{J_2}v = z(J_1) + z(J_2) $$
+where the last equality come from the fact that   $v\in\mathcal{P}(z)_{J_1} \cap \mathcal{P}(z)_{J_2}$.
+But since $z$ is submodular, we also know that $z(J_1) + z(J_2) \geq z(J_1\cap J_2) + z(J_1\cup J_2)$ implying that
+$z(J_1) + z(J_2)=z(J_1\cap J_2) + z(J_1\cup J_2)$.  Therefore $v\in  \mathcal{P}(z)_{J_1\cap J_2}\cap  \mathcal{P}(z)_{J_1\cup J_2} $. 
+
+Therefore $v$, and consequently, $L$ is on all of the associated hyperplanes.
+
+%\jr{We may change this part...}.    %----- This part is still a conjecture  ---------%
+   
+   If $J_2 = I\setminus J_1$, ( they are the set complements of each other) then the corresponding faces would be parallel
+in the base polyhedron, and would not intersect.   
+Therefore for all incomparable pairs $J_1, J_2$, either $J_1\cup J_2 \neq I$ or $J_1\cap J_2\neq \emptyset$. 
+
+If both    $J_1\cup J_2$ or $J_1\cap J_2$  were already in $\J$ be as this would imply
+linear dependencies among the $e_{J_i}$.  However it may be that one of them is already in $\J$. In this case we replace $J_1$ 
+with whichever is not already in the set. We do not introduce linear dependencies since if $e_{J_1\cap J_2}$ or   $e_{J_1\cup J_2}$
+was in the span of the other $e_{J_i}$ this would mean that there already was a linear dependence.
+
+We conjectured in ~\ref{conj:comparableSubets} that we can replace $\J$ with a family of $n-1$ comparable sets. Since there are
+no repetitions, this implies we have  an almost complete flag of 
+of $n-1$ sets, defining $L$: 
+
+$$I_1\subsetneq I_2\subsetneq \cdots \subsetneq I_{n-1} =I $$
+
+meaining that at some point,$ |I_i - I_{i-1}| = 2$. 
+At all other steps, we're only adding one element.   Then if $\{j,k \} = I_i - I_{i-1}$, the intersection will be the face where 
+all of the coordinates in $I\setminus \{j,k\}$ have been fixed, but where $x_j, x_k$ are variables.  Thus the edge is parallel to the vector $e_i-e_j$.  \\ 
+
+%	\todo[inline]{
+%	To see this more clearly, suppose that we have the chain $\{a\} , \{ab\}, \{abc\}, \{abcde\}$.  Then a point in the intersection of facets $v$
+%	defined by these sets will be in $\mathcal{P}(z)_{a}$, so $v_a = z(a). $ Then since $v\in \mathcal{P}(z)_{ab}$, we know that $v_a+ v_b = z(\{a,b\})$ 
+%	which then fixes $v_b$.  This continues until we have a case where we jump by two elements, which gives us an axis of freedom
+%	since $A+B+C+ v_d + v_e = z(\{a,b,c,d,e\})$. (A, B, and C) are the constants that were fixed by the previous constraints. 
+%	Therefore this 1-dimensional face lies on a line parallel to $e_d-e_e$ ( unfortunate indexing). }
+
+
+ Consider $F$ a face of $\bb_I$.   Let $\lambda\in F$ and  let $v\in V(\mathcal{P}(z))$ (if $\mathcal{P}(z)$ does not have vertices we first mod
+out the lineality space.)  We know that all edges connected to $v$
+have the direction $e_i-e_j$.  We orient adjacent edges 
+towards $v$, that is an adjacent edge $E$ has direction $e_i-e_j$ if $v_i>v_j$.
+From this it follows that $v$ is $\lambda$ maximal only if $\lambda\cdot e_i-e_j>0$
+or $\lambda_i>\lambda_j$.  However, since the faces of $\bb_n$ 
+correspond to weak orderings on coordinates, if $\lambda$ maximizes $v$
+then all $\gamma\in F$ do so as well.  If a face
+$Q\subset \mathcal{P}(z)$ is $\lambda$-maximal, then so is $V(Q)$
+and $F$ is contained in the face of $\mathcal{N}(\mathcal{P}(z))$ maximizing
+$Q$.   This shows that the braid arrangment refines $\mathcal{N}(\mathcal{P}(z))$ and that $\mathcal{P}(z)$ is a generalized permutohedron.  \\
+
+Now we consider $P$ a generalized permutohedron.  Since we already
+know that $P$ is the base polytope $\mathcal{P}(z)$ of a boolean function $z:2^{I}\rightarrow \RR$, and that 
+$\mathcal{N}(\mathcal{P}(z))$ is a subfan of $\bb_n$ from \cite{HopfMonoid} we wish
+to show that $z$ is in fact submodular. 
+
+  Let $S:= \supp\mathcal{N}(\mathcal{P}(z))$.  If $e_A\notin S$, 
+then $z(A)=\infty$ and the generalized permutohedron is unbounded in the direction $e_A.$ 
+
+Assume that $e_A ,e_B\in S$.  Then we have that $z(A)$ and $z(B)$ are finite and $e_A, e_B\in S$. But this implies that $e_{A\cup B}$ and $e_{A\cap B}$  are supported
+by $S$.   Since $A\cup B$ and $A\cap B$ are comparable, $\C (e_{A\cup B}, e_{A\cap B})$ 
+is in a face of  $\bb$ and so is also contained in a face of the subfan $\mathcal{N}(\mathcal{P}(z))$.   
+This implies that there is a face $Q\subset \mathcal{P}(z)$ maximized by $\C (e_{A\cup B}, e_{A\cap B})$, 
+or that for $v\in Q$ 
+$$z(A\cap B) + z( A \cup B) = e_{A\cap B}v + e_{A \cup B}v = e_A v + e_B v \leq z(A) + z(B)$$
+and that $z$ is submodular.    
+  
+
+\end{proof}
+
+
+\begin{example} 
+Let $P(z)$ be the generalized permutohedron generated by moving the facet defining hyperplanes associated to the subsets $I_1=\{1,2,3\}$ and $I_2=\{1,2,3,5\}$ of the standard permutohedron $P(a)$ with $a=(5,4,3,2,1)\in \mathbb{R}^5$  to the hyperplanes
+\begin{align*}
+H_{I_1}= \{ x\in \rr^5:\ e_{I_1}x=13=z(I_1)  \}, \\
+H_{I_2}= \{x\in \rr^5:\ e_{I_2}x=15=z(I_2)  \}.
+\end{align*}
+Note that the points $p_1=(4,5,4,0,2)$ and $p_2=(4,5,4,1,1)$ lie in the intersection
+$$
+P(z)_{J_1}\cap P(z)_{J_2} \cap P(z)_{I}=\{(4,5,4,a,2-a): \ a\in (0,1)\}:=D 
+$$
+   
+where $J_1=\{1,2\}$ and $J_2=\{2,3\}$. Note that $p_1$ lies in the intersections of the hyperplanes $H_{I_1}$ and $H_{I_2}$ with $P(z)$ so that $z$ must be a submodular function. Moreover, we have that $p_3=(5,4,4,0,2)\in P(z)_{J_1}\cap P(z)_{I_1}$ with $I_1=J_1\cup J_2$ but $p_3\notin P(z)_{J_2}$. In conclusion, we can't replace the intersection $P(z)_{J_1}\cap P(z)_{J_2}$ by $P(z)_{J_1}\cap P(z)_{J_1\cup J_2}$, however
+$$
+D=P(z)_{J_1\cap J_2}\cap P(z)_{J_2} \cap P(z)_{J_1\cup J_2} \cap P(z)_{I}
+$$  \\
+\begin{center}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{qqwwtt}{rgb}{0,0.4,0.2}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{uuuuuu}{rgb}{0.27,0.27,0.27}
+\definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm, scale=0.5]
+\draw [color=cqcqcq,dash pattern=on 2pt off 2pt, xstep=2.0cm,ystep=2.0cm] (3.46,-11.71) grid (19.42,3.23);
+\clip(3.46,-11.71) rectangle (19.42,3.23);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (8.66,1) -- (9.53,1.5) -- (10.39,0) -- (9.53,-0.5) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.65] (9.53,-0.5) -- (8.66,-2) -- (8.66,-3) -- (9.53,-2.5) -- (10.39,-1) -- (10.39,0) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.6] (4.33,-0.5) -- (5.2,-2) -- (6.93,-3) -- (6.93,-2) -- (6.06,-0.5) -- (4.33,0.5) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.55] (6.93,-2) -- (8.66,-2) -- (8.66,-3) -- (6.93,-3) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.5] (6.06,-0.5) -- (6.93,1) -- (8.66,1) -- (9.53,-0.5) -- (8.66,-2) -- (6.93,-2) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.4] (4.33,0.5) -- (5.2,2) -- (6.93,1) -- (6.06,-0.5) -- cycle;
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (5.2,2) -- (8.66,2) -- (9.53,1.5) -- (8.66,1) -- (6.93,1) -- cycle;
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (12.99,-0.5) -- (13.86,-2) -- (17.32,-2) -- (18.19,-0.5) -- (17.32,1) -- (13.86,1) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.25] (12.99,-0.5) -- (12.99,0.5) -- (14.72,-0.5) -- (15.59,-2) -- (15.59,-3) -- (13.86,-2) -- cycle;
+\fill[color=qqwwtt,fill=qqwwtt,fill opacity=0.3] (11.26,-8.5) -- (12.99,-9.5) -- (12.99,-8.5) -- (12.12,-7) -- (10.39,-6) -- (10.39,-7) -- cycle;
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (10.39,-7) -- (11.26,-5.5) -- (14.72,-5.5) -- (15.59,-7) -- (14.72,-8.5) -- (11.26,-8.5) -- cycle;
+\fill[color=qqqqff,fill=qqqqff,fill opacity=0.1] (12.12,-11) -- (8.66,-5) -- (10.39,-5) -- (13.86,-11) -- cycle;
+\draw (10.39,-1)-- (10.39,0);
+\draw (9.53,1.5)-- (8.66,2);
+\draw (5.2,2)-- (6.93,1);
+\draw (8.66,-2)-- (8.66,-3);
+\draw (5.2,-2)-- (6.93,-3);
+\draw [color=zzttqq] (8.66,1)-- (9.53,1.5);
+\draw [color=zzttqq] (9.53,1.5)-- (10.39,0);
+\draw [color=zzttqq] (10.39,0)-- (9.53,-0.5);
+\draw [color=zzttqq] (9.53,-0.5)-- (8.66,1);
+\draw [color=qqwwtt] (9.53,-0.5)-- (8.66,-2);
+\draw [color=qqwwtt] (8.66,-2)-- (8.66,-3);
+\draw [color=qqwwtt] (8.66,-3)-- (9.53,-2.5);
+\draw [color=qqwwtt] (9.53,-2.5)-- (10.39,-1);
+\draw [color=qqwwtt] (10.39,-1)-- (10.39,0);
+\draw [color=qqwwtt] (10.39,0)-- (9.53,-0.5);
+\draw [color=qqwwtt] (4.33,-0.5)-- (5.2,-2);
+\draw [color=qqwwtt] (5.2,-2)-- (6.93,-3);
+\draw [color=qqwwtt] (6.93,-3)-- (6.93,-2);
+\draw [color=qqwwtt] (6.93,-2)-- (6.06,-0.5);
+\draw [color=qqwwtt] (6.06,-0.5)-- (4.33,0.5);
+\draw [color=qqwwtt] (4.33,0.5)-- (4.33,-0.5);
+\draw [color=qqwwtt] (6.93,-2)-- (8.66,-2);
+\draw [color=qqwwtt] (8.66,-2)-- (8.66,-3);
+\draw [color=qqwwtt] (8.66,-3)-- (6.93,-3);
+\draw [color=qqwwtt] (6.93,-3)-- (6.93,-2);
+\draw [color=qqwwtt] (6.06,-0.5)-- (6.93,1);
+\draw [color=qqwwtt] (6.93,1)-- (8.66,1);
+\draw [color=qqwwtt] (8.66,1)-- (9.53,-0.5);
+\draw [color=qqwwtt] (9.53,-0.5)-- (8.66,-2);
+\draw [color=qqwwtt] (8.66,-2)-- (6.93,-2);
+\draw [color=qqwwtt] (6.93,-2)-- (6.06,-0.5);
+\draw [color=qqwwtt] (4.33,0.5)-- (5.2,2);
+\draw [color=qqwwtt] (5.2,2)-- (6.93,1);
+\draw [color=qqwwtt] (6.93,1)-- (6.06,-0.5);
+\draw [color=qqwwtt] (6.06,-0.5)-- (4.33,0.5);
+\draw [color=zzttqq] (5.2,2)-- (8.66,2);
+\draw [color=zzttqq] (8.66,2)-- (9.53,1.5);
+\draw [color=zzttqq] (9.53,1.5)-- (8.66,1);
+\draw [color=zzttqq] (8.66,1)-- (6.93,1);
+\draw [color=zzttqq] (6.93,1)-- (5.2,2);
+\draw [line width=4pt] (4.33,-0.5)-- (5.2,-2);
+\draw [line width=1.6pt,dash pattern=on 4pt off 4pt] (5.2,1)-- (8.66,1);
+\draw [line width=1.6pt,dash pattern=on 4pt off 4pt] (8.66,2)-- (8.66,1);
+\draw [line width=1.6pt,dash pattern=on 4pt off 4pt] (5.2,2)-- (5.2,1);
+\draw [dash pattern=on 4pt off 4pt] (4.33,-0.5)-- (5.2,1);
+\draw [dash pattern=on 4pt off 4pt] (5.2,-2)-- (8.66,-2);
+\draw [color=zzttqq] (12.99,-0.5)-- (13.86,-2);
+\draw [color=zzttqq] (13.86,-2)-- (17.32,-2);
+\draw [color=zzttqq] (17.32,-2)-- (18.19,-0.5);
+\draw [color=zzttqq] (18.19,-0.5)-- (17.32,1);
+\draw [color=zzttqq] (17.32,1)-- (13.86,1);
+\draw [color=zzttqq] (13.86,1)-- (12.99,-0.5);
+\draw [color=qqwwtt] (12.99,-0.5)-- (12.99,0.5);
+\draw [color=qqwwtt] (12.99,0.5)-- (14.72,-0.5);
+\draw [color=qqwwtt] (14.72,-0.5)-- (15.59,-2);
+\draw [color=qqwwtt] (15.59,-2)-- (15.59,-3);
+\draw [color=qqwwtt] (15.59,-3)-- (13.86,-2);
+\draw [color=qqwwtt] (13.86,-2)-- (12.99,-0.5);
+\draw [line width=2.8pt] (12.99,-0.5)-- (13.86,-2);
+\draw [line width=3.2pt] (10.39,-7)-- (11.26,-8.5);
+\draw [color=qqwwtt] (11.26,-8.5)-- (12.99,-9.5);
+\draw [color=qqwwtt] (12.99,-9.5)-- (12.99,-8.5);
+\draw [color=qqwwtt] (12.99,-8.5)-- (12.12,-7);
+\draw [color=qqwwtt] (12.12,-7)-- (10.39,-6);
+\draw [color=qqwwtt] (10.39,-6)-- (10.39,-7);
+\draw [color=qqwwtt] (10.39,-7)-- (11.26,-8.5);
+\draw [color=zzttqq] (10.39,-7)-- (11.26,-5.5);
+\draw [color=zzttqq] (11.26,-5.5)-- (14.72,-5.5);
+\draw [color=zzttqq] (14.72,-5.5)-- (15.59,-7);
+\draw [color=zzttqq] (15.59,-7)-- (14.72,-8.5);
+\draw [color=zzttqq] (14.72,-8.5)-- (11.26,-8.5);
+\draw [color=zzttqq] (11.26,-8.5)-- (10.39,-7);
+\draw [color=qqqqff] (12.12,-11)-- (8.66,-5);
+\draw [color=qqqqff] (8.66,-5)-- (10.39,-5);
+\draw [color=qqqqff] (10.39,-5)-- (13.86,-11);
+\draw [color=qqqqff] (13.86,-11)-- (12.12,-11);
+\begin{scriptsize}
+\fill [color=xdxdff] (8.66,1) circle (1.5pt);
+\fill [color=xdxdff] (8.66,2) circle (1.5pt);
+\fill [color=xdxdff] (9.53,-0.5) circle (1.5pt);
+\fill [color=xdxdff] (9.53,1.5) circle (1.5pt);
+\fill [color=xdxdff] (10.39,-1) circle (1.5pt);
+\fill [color=xdxdff] (10.39,0) circle (1.5pt);
+\fill [color=uuuuuu] (8.66,-2) circle (1.5pt);
+\fill [color=uuuuuu] (9.53,-2.5) circle (1.5pt);
+\fill [color=xdxdff] (5.2,1) circle (1.5pt);
+\fill [color=uuuuuu] (5.2,2) circle (1.5pt);
+\fill [color=uuuuuu] (6.93,1) circle (1.5pt);
+\fill [color=uuuuuu] (8.66,-3) circle (1.5pt);
+\fill [color=xdxdff] (4.33,-0.5) circle (1.5pt);
+\fill [color=xdxdff] (4.33,0.5) circle (1.5pt);
+\fill [color=uuuuuu] (5.2,-2) circle (1.5pt);
+\fill [color=xdxdff] (6.06,-0.5) circle (1.5pt);
+\fill [color=xdxdff] (6.93,-3) circle (1.5pt);
+\fill [color=xdxdff] (6.93,-2) circle (1.5pt);
+\fill [color=qqqqff] (12.99,-0.5) circle (1.5pt);
+\fill [color=qqqqff] (13.86,-2) circle (1.5pt);
+\fill [color=qqqqff] (17.32,-2) circle (1.5pt);
+\fill [color=qqqqff] (18.19,-0.5) circle (1.5pt);
+\fill [color=qqqqff] (17.32,1) circle (1.5pt);
+\fill [color=qqqqff] (13.86,1) circle (1.5pt);
+\fill [color=qqqqff] (12.99,0.5) circle (1.5pt);
+\fill [color=qqqqff] (14.72,-0.5) circle (1.5pt);
+\fill [color=xdxdff] (15.59,-2) circle (1.5pt);
+\fill [color=qqqqff] (15.59,-3) circle (1.5pt);
+\fill [color=qqqqff] (12.12,-7) circle (1.5pt);
+\fill [color=qqqqff] (12.12,-11) circle (1.5pt);
+\fill [color=qqqqff] (10.39,-7) circle (1.5pt);
+\fill [color=qqqqff] (11.26,-8.5) circle (1.5pt);
+\fill [color=qqqqff] (12.99,-9.5) circle (1.5pt);
+\fill [color=qqqqff] (12.99,-8.5) circle (1.5pt);
+\fill [color=qqqqff] (10.39,-6) circle (1.5pt);
+\fill [color=qqqqff] (11.26,-5.5) circle (1.5pt);
+\fill [color=qqqqff] (14.72,-5.5) circle (1.5pt);
+\fill [color=qqqqff] (15.59,-7) circle (1.5pt);
+\fill [color=qqqqff] (14.72,-8.5) circle (1.5pt);
+\fill [color=qqqqff] (8.66,-5) circle (1.5pt);
+\fill [color=qqqqff] (10.39,-5) circle (1.5pt);
+\fill [color=qqqqff] (13.86,-11) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\begin{center}
+Figure. On the left we see the face $F=P(z)_{\{2\}}\cap P(z)_{\{1,2,3,4,5\}}$. On the right the faces $F\cap P(z)_{1,2}$ and $P(z)_{2,3}$. In the center we see the intersection of a projection of the hyperplane $H_{I_1}$ with $F$.  
+\end{center}
+\end{center}  
+\end{example}
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%								   Signed Permutohedra 													   	|
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+
+\section{Signed Permutohedron}
+
+Now lets consider orbit polytopes under the hyperplane arrangement $BC_n$
+
+
+
+
+The type $BC_n$ hyperplane arrangement is the root system obtained by adding few more planes to the type $A$ reflection group:
+\begin{definition}
+The type $BC_n$ hyperplane arrangement in $\RR^n$ is the set of all hyperplanes of the form 
+$$ x_i=x_j , \quad x_i=-x_j, \quad x_k = 0, \text{ for all  } i\neq j$$
+\end{definition}
+We may sometimes view this as fan in $\RR_n^*$ of linear functionals.  In particular, as in the case of type $A$ permutohedra, 
+this is equivalent to the normal fan of type $BC$ permutohedra.   The rays of this fan are precisely all the vectors in $\{-1, 0, 1\}^n $. 
+Each non-zero ray corresponds to a facets of the $BC$ orbit polytope, hence there are $3^n-1$ facets. 
+
+ %----------------------   Foundational Definitions   ----------------------------%
+ 
+ %/mk{This definition  should probably go in the previous section}
+ 
+ \begin{definition}
+ A {\bf Signed subset} $S$ of $I$ is a pair of disjoint sets $S_+, S_-\subset I$.   We define $|S| = |S_+| + |S_-|$.  $S$ is a proper signed subset
+ if $|S|>0$.   Let $\si(I)$ denote the set of signed subsets of $I$.   For two signed subsets $S$ and $T$ we say that $S\sqsubseteq  T$ 
+ if $S_+\subset T_+$ and $S_-\subset T_-$.   
+ 
+ We say $a\in S$ if $a\in S_-$ or $a\in S_+$.
+ 
+ We say $S=\emptyset$ if both $S_+=\emptyset$ and $S_-=\emptyset$.
+ 
+  For $S$ a signed subset we define $e_S = e_{S_+} - e_{S_-}$.
+ \end{definition}
+ 
+ This might seem superfluous at the moment, however since there is a natural correspondence between signed subsets and facets
+ of the type $BC$ permutohedra, we utilize this notation for brevity. 
+ 
+ 
+
+
+\subsection{Facial structure of the signed permutohedron}
+
+\begin{propo}
+\label{prop:spermfaces}
+
+Let $a=(\alpha_1,\dots, \alpha_n)$ be a point such that $\alpha_1>\cdots > \alpha_n > 0$ and let $P=P_{BC}(a)$ be it's orbit polytope over the hyperplane arrangement $BC_n$. There is a bijection between the $k$ dimensional faces and signed partitions of $[n]$ of the form $S_1,\dots,S_k,S_{k+1}$ where the first the first $k$ parts are nonempty and $S_{k+1\, -}=\emptyset$, for $k=1,\dots, n$.
+
+% Then $F_{\mathcal S}$ is a face of $P$, dim $F_{\mathcal S}=n-k$ and for every face $F$ of $P$ we have $F=F_{\mathcal S}$ for some partition $\mathcal S$.
+\end{propo}
+
+\begin{proof}
+For a number $1\leq k\leq n$, let $\mathcal S$ be a signed partition of $[n]$ into $k+1$ signed subsets $S_1, \dots, S_k, S_{k+1}$ with $S_i$ non empty for $i=1,\dots,k$, $S_{k+1}$ possibly empty and $S_{k+1\, -}=\emptyset$ . Let $s_i=|S_i|$ for $i=1,\dots,k+1$,  let $t_i=\sum_{j=1}^i s_j$ for $i=1,\dots,k+1$ and let us define sets $A_1=\{|\alpha_j|: 1\leq j\leq s_1\}$ and $A_i=\{|\alpha_j|: t_{i-1}<j\leq t_i\}$ for $i=2,\dots,k+1$.
+
+Let $F_{\mathcal S}$ be the convex hull of the points $b=\sigma(a), b=(\beta_1,\dots,\beta_n)$ where $\sigma $ is a signed permutation, such that $\{ |\beta_j|:j\in S_i \}=A_i $ for all $i=1,\dots,k+1$, $ \beta_j>0 $ for all $j\in S_{i+}$ for $i=1,\dots,k$ and $ \beta_j<0 $ for all $j\in S_{i-}$ for $i=1,\dots,k$, that is permuting the first $s_1$ biggest numbers in the positions given by $S_1$, and the ones in the positions $S_{1+}$ being positive and the ones in the positions $S_{1-}$ being negative, the next $s_2$ biggest numbers in the positions given by $S_2$, the ones in positions $S_{2+}$ being positive and the ones in positions $S_{2-}$ being negative, and so forth, and the last ones in positions given by $S_{k+1}$ with any sign.
+
+Then $F_{\mathcal S}$ is a face of $P$ and for every face $F$ of $P$ we have $F=F_{\mathcal S}$ for some partition $\mathcal S$.
+
+Lets describe first all the faces $F$ of $P$ containing $a$.
+
+Let $c=(\gamma_1,\dots,\gamma_n)$ be a vector and $\lambda$ be a number such that $\langle c, x \rangle \leq \lambda$ for all $x\in P$ and $\langle c, x \rangle = \lambda$ if and only if $x\in F$. As $a\in F$, $\langle c, a \rangle = \lambda$. Lemma \ref{lem:reorder} implies that we must have $\gamma_1\geq\cdots\geq\gamma_n\geq 0$, since if for some $i<j$ we had $\gamma_i<\gamma_j$, we would have obtainded $\langle c, \tau(a) \rangle > \langle c, a \rangle$ for the transposition $\tau$ that swaps $\alpha_i$ and $\alpha_j$, and if for some $i$, $\gamma_i<0$, then changing the sign of the $i$-th coordinate of $a$ would increase the value of the functional.
+
+Let us split the sequence $\gamma_1\geq\cdots\geq\gamma_n\geq 0$ into the subintervals $S_1,\dots,S_k,S_{k+1}$ for which de $\gamma$'s do not change, leaving the ones that are equal to zero in the last set. Hence $S_1=\{ j:\gamma_j=\gamma_1 \}$, $s_1=t_1=|S_1|$ and $S_i=\{ j:\gamma_j=\gamma_{t_{i-1}+1} \}$, $s_i=|S_i|$ and $t_i=t_{i-1}+s_i$ for $i=2,\dots,k$, $S_{k+1}=\{ j:\gamma_j=0 \}$, $s_{k+1}=|S_{k+1}|$
+
+We observe that for $b=\sigma(a)=(\beta_1,\dots,\beta_n)$, we have $\langle b, c \rangle=\langle a, c \rangle$ if and only if $\{ \beta_i : i\in S_j \}=A_j$ for $j=1,\dots, k$. Applying Lemma \ref{lem:faces}, we conclude that $F=F_{\mathcal{S}}$ for the signed partition $S_1, \dots, S_k, S_{k+1}$ identifying each subset with its signed subset where the $S_{i-}=\emptyset$, then we have $S_{i+}\not=\emptyset$ for $i=1,\dots k$.
+
+Lets see the dimension of this face. Let $a_1=(\alpha_1,\dots,\alpha_{s_1})\in \RR^{s_1}$, and let $a_i=(\alpha_{t_{i-1}+1},\dots,\alpha_{s_i})\in \RR^{s_i}$ for $i=2,\dots, k+1$. Geometrically, the face $F_{\mathcal{S}}$ is the direct product 
+
+$$ F_{\mathcal{S}}=P(a_1)\times \cdots \times P(a_k) \times P_{BC}(a_{k+1}) $$
+
+where $P(a)$ means the usual permutation polytopes discussed before, $P(a_i)\subset \RR^{s_i}$, and $P_{BC}(a_{k+1})\subset \RR^{s_{k+1}}$, the orbit polytope over the type $BC_n$ hyperplane arrangement. Since all of them have different coordinates, then each $P(a_i)$ has dimension $s_i-1$, and $P_{BC}(a_{k+1})$ is full dimensional so it is of dimension $s_{k+1}$. Therefore,
+
+$$ dim F_{\mathcal{S}}=dim P_{BC}(a_{k+1}) + \sum_{i=1}^k dim P(a_i)=s_{k+1} +\sum_{i=1}^k s_i-1=n-k$$
+
+Now lets see what happens with an arbitrary face. Let $\sigma$ be a signed permutation such that $\sigma(x)=y$, $\sigma $ is an orthogonal transformation over $\RR^n$. As $P$ is fixed by any signed permutation, then $F$ is a face of $P$ if and only if for some signed permutation $\sigma$, the set $\sigma(F)$ is a face of $P$ containing $a$. If $\sigma(F)$ is $F_{\mathcal{S}}$ for the signed partition $S_1, \dots, S_k,S_{k+1}$ where all the $S_i\neq\emptyset$ for $i=1,\dots k$ and $S_{i-}=\emptyset$ for $i=1,\dots k+1$, then $F=F_{\mathcal{S'}}$ for $\mathcal{S'}$ the signed partition $T_1, \dots, T_k, T_{k+1}$ where $T_{i+}\cup T_{i-}=\{ |j|: j\in \sigma^{-1}(S_{i+}) \}$, $T_{i-}$ has the elements that $\sigma $ changes sign, and $T_{i+}$ the others, for $i=1,\dots, k$, and $T_{k+1+}=\{ |j|: j\in\sigma^{-1}(S_{k+1+}) \}$.
+
+
+
+
+
+\end{proof}
+
+
+
+\begin{propo}
+\label{prop:spermzono}
+
+
+The signed permutohedron $P_{BC}(a)$ where $a=(n,n-1,\dots,1)$ equals the minkowski sum
+
+$$ \sum_{i=1}^n [ -e_i,e_i ] + \sum_{i>j}[-\frac{e_i-e_j}{2},\frac{e_i-e_j}{2}]+[-\frac{e_i+e_j}{2},\frac{e_i+e_j}{2}] $$
+\end{propo}
+
+\begin{proof}
+Observe that the minkowski sum is invariant under the action of any signed permutation, that is invariant under transposition, because if we take the transposition that swaps $k$ and $l$, $[ -e_k,e_k ]$ becomes $[ -e_l,e_l ]$ and vice versa, the ones of type $[-\frac{e_i-e_j}{2},\frac{e_i-e_j}{2}]$ give all of the same type possibly changing the order of the endpoints, and the ones of type $[-\frac{e_i+e_j}{2},\frac{e_i+e_j}{2}]$ give all of the same type, and invariant under a change of signs, say $k$, $[ -e_k,e_k ]$ becomes $[ e_k,-e_k ]$ that is the same, $[-\frac{e_i-e_k}{2},\frac{e_i-e_k}{2}]$ becomes $[-\frac{e_i+e_k}{2},\frac{e_i+e_k}{2}]$, changes it's type, but the one that was $[-\frac{e_i+e_k}{2},\frac{e_i+e_k}{2}]$ becomes $[-\frac{e_i-e_k}{2},\frac{e_i-e_k}{2}]$.
+
+Now lets see which points of the minkowski sum maximizes a linear functional $c=(\gamma_1,\dots,\gamma_n)$ with $\gamma_1>\cdots>\gamma_n> 0$. If $j=1$, in the segment $[ -e_1,e_1 ]$, $e_1$ maximizes the linear functional, in the segment $[-\frac{e_i-e_1}{2},\frac{e_i-e_1}{2}]$, $-\frac{e_i-e_1}{2}$ maximizes the linear functional, and in the segment$[-\frac{e_i+e_1}{2},\frac{e_i+e_1}{2}]$, $\frac{e_i+e_1}{2}$ maximizes the linear functional, then from the segments that contains $e_1$, we get the point $e_1+\sum_{i=2}^n -\frac{e_i-e_1}{2}+\frac{e_i+e_1}{2}=ne_1$, the segments that contains $e_2$ but not $e_1$ would give that the point maximizing the linear functional in their sum is $e_2+\sum_{i=3}^n -\frac{e_i-e_2}{2}+\frac{e_i+e_2}{2}=(n-1)e_2$, and so forth, then the point maximizing the linear functional $c$ is $(n,n-1,\dots,1)$. If there is a coordinate of $c$ equal to zero, say $\gamma_i=0$, then the whole segment $[ -e_i,e_i ]$ would maximize the functional, then the result would not be a vertex of polytope, as if there are two equal coordinates $\gamma_i=\gamma_j$, then the whole segment $[-\frac{e_i-e_1}{2},\frac{e_i-e_1}{2}]$ would maximize it. Then there exists a signed permutation $\sigma$ such that $\sigma(c)$ has positive coordinates and ordered in decreasing order, then the linear functional $\sigma(c)$ is maximized by $(n,n-1,\dots,1)$, then $c$ is maximized by $(\sigma^{-1}(n),\sigma^{-1}(n-1),\dots,\sigma^{-1}(1))$ that is a vertex of $P_{BC}(a)$.
+
+Vice versa each vertex of $P_{BC}(a)$ is $\sigma(a)$ for a signed permutation, let $c$ be a linear functional maximized by $a$, then $\sigma(c)$ is maximized by $\sigma(a)$, then the vertices of the signed permutahedron are the same as the vertices of the given minkowski sum.
+\end{proof}
+
+
+
+
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+%								   Bisubmodular functions Section 	  										   	|
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+
+
+
+\section{Bisubmodular Functions and Generalized Signed Permutohedra}
+
+
+
+We will now examine generalized type $BC$ generalized permutohedra. As before, since signed subsets of $I$  correspond
+to the facets of a type $BC_I$ generalized permutohedra, we wish to characterize the maps from these signed subsets to $\RR$
+that give rise to proper generalized $BC$ permutohedra.  
+
+\begin{definition}  
+{\bf Generalized type $BC$ permutohedra } are defined in the same way as generalized type $A$ permutohedra: they are all the deformations
+of the usual $BC$ orbit polytope that preserves edge directions.   Equivalently, they are polytopes whose normal fan is refined by
+the $BC_n$ hyperplane arrangement. 
+\end{definition}
+
+
+
+ %-------------------     Figure of the BC_3 arrangement/ Fan---------------%
+ \definecolor{ffqqtt}{rgb}{1,0,0.2}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{figure}[htbp]
+   \centering
+   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.94,-8.2) rectangle (12.97,5.23);
+\draw (1,1)-- (4,3);
+\draw (7,1)-- (10,3);
+\draw (7,-5)-- (10,-3);
+\draw (1,-5)-- (4,-3);
+\draw (1,1)-- (1,-5);
+\draw (4,-3)-- (4,3);
+\draw (1,1)-- (7,1);
+\draw (4,3)-- (10,3);
+\draw (10,3)-- (10,-3);
+\draw (7,1)-- (7,-5);
+\draw (1,-5)-- (7,-5);
+\draw [->] (5.5,-1) -- (7,1);
+\draw [->] (5.5,-1) -- (7,-5);
+\draw [->,line width=2pt,color=qqqqff] (5.5,-1) -- (4,-2);
+\draw [->] (5.5,-1) -- (1,-5);
+\draw [->] (5.5,-1) -- (1,1);
+\draw [->] (5.5,-1) -- (1,-2);
+\draw [->] (5.5,-1) -- (4,1);
+\draw [->] (5.5,-1) -- (7,-2);
+\draw [->] (5.5,-1) -- (4,-5);
+\draw [->] (5.5,-1) -- (10,-3);
+\draw [->] (5.5,-1) -- (10,3);
+\draw [->] (5.5,-1) -- (10,0);
+\draw [->] (5.5,-1) -- (8.56,-3.96);
+\draw [->,line width=2pt,color=qqqqff] (5.5,-1) -- (5.5,2);
+\draw [->] (5.5,-1) -- (2.64,1.96);
+\draw [->] (5.5,-1) -- (7,3);
+\draw [->] (5.5,-1) -- (4,3);
+\draw [->] (5.5,-1) -- (4,-3);
+\draw [->] (5.5,-1) -- (2.84,-3.78);
+\draw [->] (5.5,-1) -- (5.5,-4);
+\draw (4,-3)-- (10,-3);
+\draw [->] (5.5,-1) -- (7,-3);
+\draw [->] (5.5,-1) -- (2.58,-1.02);
+\draw [->] (5.5,-1) -- (7,0);
+\draw [->,line width=2pt,color=qqqqff] (5.5,-1) -- (8.5,-1);
+\draw [->] (5.5,-1) -- (8.49,1.99);
+\draw [color=ffqqtt] (5.5,-1) -- (5.5,5.23);
+\draw [color=ffqqtt,domain=-0.9411072641171816:5.5] plot(\x,{(--3.03-0.02*\x)/-2.92});
+\draw [color=ffqqtt,domain=-0.9411072641171816:5.5] plot(\x,{(--7-1*\x)/-1.5});
+\draw [color=ffqqtt,domain=5.5:12.970653417248457] plot(\x,{(-3-0*\x)/3});
+\draw [color=ffqqtt,domain=5.5:12.970653417248457] plot(\x,{(-7--1*\x)/1.5});
+\draw [color=ffqqtt] (5.5,-1) -- (5.5,-8.2);
+\draw (8.36,-0.81) node[anchor=north west] {$e_{2}$};
+\draw (3.72,-1.65) node[anchor=north west] {$e_1$};
+\draw (5.73,2.35) node[anchor=north west] {$e_3$};
+\draw (2.62,-0.57) node[anchor=north west] {$e_{-2}$};
+\draw (0.54,1.52) node[anchor=north west] {$e_{1,-2,3}$};
+\draw (10.05,3.49) node[anchor=north west] {$e_{-1,2,3}$};
+\draw (3.72,3.49) node[anchor=north west] {$e_{-1,-2,3}$};
+\draw (6.91,-5.27) node[anchor=north west] {$e_{1,2,-3}$};
+\draw (0.59,-5.21) node[anchor=north west] {$e_{-1,2,-3}$};
+\draw (6.62,1.52) node[anchor=north west] {$e_{1,2,3}$};
+\draw (10.43,-2.84) node[anchor=north west] {$e_{1,-2,-3}$};
+\draw (0.2,-1.7) node[anchor=north west] {$e_{-1,-2}$};
+\draw (10.32,0.25) node[anchor=north west] {$e_{-1,2}$};
+\draw (5.6,-3.86) node[anchor=north west] {$e_{-3}$};
+\draw (4.02,-5.19) node[anchor=north west] {$e_{1,-3}$};
+\draw (8.78,-4.05) node[anchor=north west] {$e_{2,-3}$};
+\draw (2.26,2.66) node[anchor=north west] {$e_{-2,3}$};
+\draw (3.68,1.46) node[anchor=north west] {$e_{1,3}$};
+\draw (6.68,3.53) node[anchor=north west] {$e_{-1,3}$};
+\draw (7.93,2.33) node[anchor=north west] {$e_{2,3}$};
+\end{tikzpicture}
+   \caption{The rays generated by the $BC_3$ hyperplane arrangement. Each ray is labeled using subset notation}
+   \label{fig:bc_arr}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+Just like we use submodular boolean functions to parametrize generalized type $A$ permutohedra, we will show that  bisubmodular functions
+ parametrize the generalized $BC$ polytopes.  
+
+ We need to now define some operations on signed subsets that are analogous to intersection and union: 
+ %-------------------     Restricted Union and Intersection ---------------%
+ 
+ \begin{definition}
+ The {\bf restricted union} of two signed subsets $S$ and $T$ denoted $S\vee T =U$ is given by 
+ $$ U_+ = (S_+\cup T_+)\setminus(S_-\cup T_-) \   \text{   and    }  \ U_- = (S_-\cup T_-) \setminus(S_+\cup T_+)$$ 
+ \end{definition}
+This definition assures us that the restricted union always exists.  
+
+
+\begin{definition}  The {\bf restricted intersection} of two signed subsets $S$ and $T$ denoted $S\wedge T= V$ is defined as
+$$ V_+ = S_+\cap T_+ \text{   and    } V_-= S_-\cap T_- $$ 
+ \end{definition}
+
+
+
+\begin{definition}
+
+A function $f$ from $\mathcal{S}(I)$ to $\RR\cup \{\infty\}$ is called {\em bisubmodular} if it satisfies, for all signed subsets $S $,$T$,
+
+$$ f(S)+f(T)\geq f(S\wedge T)+f(S\vee T) $$
+
+\end{definition}
+
+ 
+\vspace{.5cm}          %  <<<<< ----------------  Added vertical space
+
+
+ %----------------------  Base Polyhderon     -------------------%
+ 
+\begin{definition}
+The {\em Base Polyheron} associated with  $f: \mathcal{S}(I) \rightarrow \RR$ is defined as
+ $$\pp(f)=\{ x\in \RR^n : e_S(x) \leq f(S) \text{ for all }  S \in \si(I), \}$$
+\end{definition}
+
+This construction above now looks very similar to the base polytope of a boolean function. However this Polyhedra
+can now be full dimensional.   Note that the defining hyperplanes are all parallel to the type $BC$ permutohedron. So given 
+any generalized $BC$ permutohderon polyhedron it can be expressed as $\pp(f)$ for a $f: \si(I) \rightarrow \RR$. 
+However we have not conditioned $f$. We now wish to show that $f$ is in fact bisubmodular if $\pp(f)$ is a generalized $BC$
+permutohedra
+
+Just like in the case of the type $A$ permutohdron, we will speak interchangeably of signed subsets and the facets
+that they define.  We'll denote by $\pp(f)_S$, where $S$ is a signed subset,  the facet of $\pp(f)$ that is maximized by $e_S$.
+ Before we prove our main theorem,  we'll establish a useful lemma reproduced from \cite{Bisub}:  \\
+
+ %----------------------  Lemma about restricted union and intersection     -------------------%
+ 
+%/mk{This lemma can be used to shorten the main theorem} 
+\begin{lemma}
+\label{lemma:restUnion}
+If for $S,T\in \si(I)$,  $x \in \pp(f)_S \cap \pp(f)_T $,  then 
+$x\in  \pp(f)_{S\vee T}$,
+
+$x\in \pp(f)_{S\wedge T}$, and consequently if $U^+ = S+\setminus T_-$ and $U_- = S_-\setminus T_-$, then  $x\in \pp(f)_{U}$    In other words, the restricted union and restricted intersection, and $S\setminus T$ of
+$x$-tight signed subsets are also $x$-tight signed subsets.
+ \end{lemma}
+ 
+ \begin{proof}
+ We use the linear functional notation: 
+ \begin{align*}
+ f(S\vee T) + f(S\wedge T) & \leq  f(S) + f(T)\\
+   & = e_S(x) + e_T(x)\\
+    &=e_{S_+} - e_{S_-} + e_{T_+} - e_{T_-}  \\
+    &= e_{(S_+\cup T_+ )\setminus (S_-\cup T_-)} - e_{  (S_-\cup T_-)\setminus (S_+\cup T_+ )} + e_{S_+\cap T_+} - e_{S_-\cap T_-} \\
+    & = e_{S\vee T} + e_{S\wedge T}\\
+   & \leq f(S\vee T) + f(S\wedge T)
+      \end{align*}
+   where the last inequality comes from the fact that $x\in \pp(f)$.  Therefore   
+   $$f(S\vee T) + f(S\wedge T) =  f(S) + f(T)$$
+   and all these four subsets are $x-$tight, implying that $x$ is also on the defining hyperplanes $H_{S\vee T} $ and $H_{S\wedge T}$.
+
+Furthermore since $S$ and $S\vee T$ are $x$-tight, then so is $S\wedge(S\vee T)$, but this is simply 
+$$ S_+\cap (S_+\cup T_+)\setminus(S_-\cup T_-) = S_+\setminus T_-$$
+and 
+$$ S_- \cap(S_-\cup T_-) \setminus(S_+\cup T_+)  = S_-\setminus T_+$$
+ Therefore $U = (S_+\setminus T_-, S_-\setminus T_+)$ is also $x$-tight. 
+ \end{proof}
+
+
+\vspace{.5cm}           % <<<<< ----------------    Added vertical space
+
+
+\begin{conj}
+\label{conj:comparableSignedSets}
+If $E$ is an edge in in a bisubmodular polytope $\pp(f)$ in $\RR^n$ then it can be expressed 
+as the intersection of $n-1$ defining hyperplanes $H_{J_i}$ corresponding
+to a chain of strictly comparable signed sets $\J = \{ S_1,  S_2 ,\dots, S_{n-1} \}$.  
+\end{conj}
+
+The beginning of a proof of this is given in the proof of the following theorem. However 
+as in the sub modular case, it remains to be shown that at each step of a swapping process
+to go from $\J$ an arbitrary edge defining family of signed sets to $\J'$ an almost
+complete flag of signed sets we do not introduce linear dependencies.  We do not give a proper
+procedure that addresses cases where the restricted union or the restriceted intersection
+are already in $\J$.   
+
+
+ %-------------------------------------------------   Main Theorem      ------------------------------------------------------------%
+ %-=============================================================================%
+
+\begin{theorem}
+If $f$ is  bisubmodular, $P(f)$ is a generalized signed permutohedron.
+% Also if $P$ is a generalized signed permutohedron, then there is a unique bisubmodular function $f$ such that $P=P(f)$.
+%-----------    the other direction is still a conjecture.  -----------------%
+\end{theorem}
+
+\begin{proof}
+
+
+ %---------------------- Forward Direction     -------------------%
+ Let $f$ be bisubmodular, we first show that any edge of $P(f)$ has direction $e_i-e_j$ or 
+  $e_i+e_j$ for some pair $(i,j)$, or has direction $e_i$ 
+for some $i$. 
+
+Now suppose $E$ is a one dimensional face of $P(f)$. Then it must be the one-dimensional intersection  $L$
+of $n-1$ defining hyperplanes of $P(f)$, each corresponding to some $S\in \si(I)$.
+Let $\J=\{ S_1, S_2, \dots S_{n-1} \}$ be the family of signed sets such that 
+
+$$L=\bigcap_{S\in \J} H_{S_i}$$
+Suppose that $S,T\in \J$ are incomparable.  That is neither $S\sqsubset T$ nor $T\sqsubset S$.  Let $x \in \pp(f)_S \cap \pp(f)_T $. 
+Then by lemma ~\ref{lemma:restUnion} 							
+we have that $S\vee T$, $S\wedge T$ and $U = (S_+\setminus T_- , S_-\setminus T_+)$ are also $x$-tight.  We want to pick a pair of these
+signed subsets that are strictly comparable.  $S\wedge T$ is always guaranteed to be comparable to both $S$ and $T$, but $S\vee T$ is
+not. 
+
+
+So if $S\wedge T=\emptyset$, then we should choose $U$.  But it could be that $U =S $ and we have to choose  $S\vee T$. 
+However if $U=S$, then $S_+\setminus T_-= S_+ $ and $S_-\setminus T_+ = S_-$ implies that 
+
+$$  S_+ \subset (S_+\cup T_+ )\setminus (S_-\cup T_-) \ \ \text{and} \ \ S_- \subset   (S_-\cup T_-)\setminus (S_+\cup T_+ ) $$ 
+So our fall back $S\vee T$  is now strictly comparable to $S$.   
+
+The worst case scenario where $S\vee T = S\wedge T = U = \emptyset$ implies the corresponding linear functionals are the 
+negatives of each other, and that the faces they define are parallel and cannot intersect in a line.  
+
+Therefore we can switch out signed subsets of $\J$ for comparable signed subsets while still defining the same intersection
+in a procedure that maintains linear independence as conjectured in ~\ref{conj:comparableSignedSets}
+Let $\J' = \{ T_1, T_2, \dots , T_{n-1}\}$ be the result of such a substitution.   
+This gives us an "almost complete" flag of $n-1$ signed subsets 
+$$ T_1 \sqsubset T_2 \sqsubset \cdots \sqsubset T_{n-1}$$
+where these are strict inclusions. 
+
+ Therefore we consider three possibilities: 
+ \begin{enumerate}[i]
+ 
+ \item   $|T_{n-1}| = n-1$ in which case
+we've added one at every step, and $a\in I$ is the only remaining element not added. This implies that the
+$L$ has direction $e_a$.   
+
+\item     If $|T_{n-1}|  = n$ then at some point we've added two elements $\{a,b\}$ to a signed subset in the chain.   
+If they were both added to $T_i^-$ or both added to $T_i^+$, then we get the equation $x_a + x_b = K$
+or $-x_a-x_b = K$ and in both cases the direction is $e_a-e_b$.   
+
+
+\item
+Lastly if  $|T_{n-1}|  = n$ and  we again added $\{a,b\}$ at some point where $a$ was added to $T_i^+$ and $b$ 
+was added to $T_i^-$ then we have the equation $x_a-x_b =K$
+and the direction of $L$ is $e_a+e_b$.
+
+\end{enumerate}
+
+
+This shows that all edges of $\pp(f)$ are the right direction.   
+ Let $v\in V(\pp(f))$.    Orient all the edges towards $v$. So 
+if $E$ is adjacent to $v$ then we write its direction (depending on the what type of edge it is) as:  
+\begin{align*}
+e_i-e_j 	& \quad   \text{ if $v_i>v_j$}\\
+e_i  		&   \quad \text{ if $v_i > 0$} \\
+-e_i  		&  \quad  \text{ if $v_i < 0$ }\\
+e_i+e_j   	&  \quad \text{  if $ v_i > -v_j$} 
+\end{align*}
+
+Let $\gamma \in BC_n$.   The vertex $v$ maximizes $\gamma$ if for every edge $E$ adjacent
+to $v$ with oriented direction $ e_S$, we have that $\gamma\cdot e_S \geq 0$.  However
+given all the possible orientations of edges, whether or not $v$ is $\gamma$ maximal now
+only depends on the face $F\subset BC_n$ containing $\gamma$.  Therefore $F$ is contained
+in the face $N\subset \nn(\pp(f))$ that maximizes $v$.   \\
+
+From this it follows that if $\gamma \in F\subset BC$ maximizes $Q$ a face of $\pp(f)$, 
+then $F$ is contained in $\nn_Q(\pp(f)$, the face of the normal fan that maximizes $Q$. 
+This shows that $\nn(\pp(f))$ is refined by $BC_n$ and that $\pp(f)$ is a generalized $BC$
+permutohedra.  
+
+
+ %---------------------- Backward  Direction     -------------------%
+
+
+
+
+\end{proof}
+
+\begin{conj}
+If $P$ is a generalized type $BC$ permutohedra then there exists a unique bisubmodular function $f$ such 
+that $P= \pp(f)$. 
+\end{conj}
+
+Since this situation is geometrically analogous to the submodular case, proving this conjecture
+should follow similarly.  
+
+
+\section{Conclusion}
+
+With this project we have attempted to both compile a survey of known and partially know
+results about generalized permutohedra and extend these to analogous results about 
+the type $BC$ permutohedra.  There are still many open areas of research that need to 
+be concluded such as  proving the conjectures in this paper.   A conclusive proof
+of the submodularity of the parameters of the generalized permutohedra and
+the bisubmodularity of the type $BC$ permutohedra is yet to be produced for us. 
+However these are mostly minor details that should surrender to continued work. 
+
+Left to explore in more details are the connections between a more advanced understanding
+of the geometry of Generalized permutohdra of both type $A$ and $BC$ and matroid
+polytopes.   In particular, we wish to explore how our work might contribute to studying
+delta-matroids, as we drew much of our knowledge on bisubmodular polyhedra from
+\cite{Bisub}.  Over the course of our research we have discovered many connections
+between submodular functions and graph theory, matroid theory, and statistics.  We hope
+that the same may apply to bisubmodular functions and by extension, generalized 
+type $BC$ permutohedra.   
+However the immediate next steps in this line of research will be to compile a more
+complete set of theorems regarding the geometry of type $BC$ generalized 
+permutohedra and the space of bisubodular functions that parametrize them.   
+
+
+
+
+
+
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %%  
+% % % % % % % % % % % % % % % % % %      Bibliography     % % % % % % % % % % % % % % % % % % % % %
+\begin{thebibliography}{1}
+
+\bibitem{matroidPoly} F. Ardila, C. Benedetti, J, Doker. {\em Matroid Polytopes and their Volumes} preprint, 2011.
+
+\bibitem{HopfMonoid} M. Aguiar, F. Ardila, {\em The Hopf Monoid of Generalized Permutohedra} preprint 2011.
+
+
+\bibitem{DokerThesis} J. Doker. {\em Geometry of Generalized Permutohedra} Doctroral Thesis, 2011.
+
+\bibitem{Postnikov} A. Postnikov, {\em Permutohedra, Associahedra, and Beyond} preprint? , 2005
+
+\bibitem{Barvinok} A. Barvinok, {\em A Course in Convexity} (Graduate studies in mathematics, ISSN 1065-7339 ; v. 54), 1963.
+
+\bibitem{Ziegler} Gunter M. Ziegler, {\em Lectures on Polytopes} (Graduate texts in mathematics, 152), 1998.
+
+\bibitem{Bisub} A. Bouchet, W. H. Cunningham, {\em Delta-matroids, Jump Systems and Bisubmodular Polyhedra}, 1991
+
+
+
+\end{thebibliography}
+
+
+
+
+\end{document}
+
+
